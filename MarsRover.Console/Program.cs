@@ -1,6 +1,4 @@
 ﻿
-
-/// 
 Console.WriteLine("Lütfen alan boyutunu yazınız. Örn: 5 5 ");
 var Area = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToList();
 
