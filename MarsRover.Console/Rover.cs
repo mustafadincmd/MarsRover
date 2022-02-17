@@ -11,15 +11,14 @@ namespace MarsRover.Console
         public int x;
         public int y;
         public string dir;
-        public  Rover(string location)
+        public Rover(string location)
         {
-        
-          x= Convert.ToInt32(location.Split(" ")[0]);
-          y= Convert.ToInt32(location.Split(" ")[1]);
-          dir=location.Split(" ")[2];   
+
+            x = Convert.ToInt32(location.Split(" ")[0]);
+            y = Convert.ToInt32(location.Split(" ")[1]);
+            dir = location.Split(" ")[2];
 
         }
-
         public void TurnLeft()
         {
             switch (dir)
@@ -36,7 +35,7 @@ namespace MarsRover.Console
                 case "W":
                     dir = "S";
                     break;
-                    default:
+                default:
                     throw new ArgumentException();
 
             }
@@ -65,7 +64,47 @@ namespace MarsRover.Console
         }
         public void Forward()
         {
-            throw new NotImplementedException();
+            switch (dir)
+            {
+                case "N":
+                    y += 1;
+                    break;
+                case "E":
+                    x += 1;
+                    break;
+                case "S":
+                    y -= 1;
+                    break;
+                case "W":
+                    x -= 1;
+                    break;
+                default:
+                    throw new ArgumentException();
+            }
+        }
+        public void Execute(string Command)
+        {
+            char[] Rotation = Command.ToCharArray();
+
+            for (int i = 0; i < Rotation.Length; i++)
+            {
+                switch (Rotation[i])
+                {
+                    case 'L':
+                        TurnLeft();
+                        break;
+                    case 'M':
+                        Forward();
+                        break;
+                    case 'R':
+                        TurnRight();
+                        break;
+                    default:
+                        throw new ArgumentException();
+                }
+
+            }
+
         }
     }
 }
