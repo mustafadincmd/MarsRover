@@ -92,13 +92,13 @@ public class Rover : IRover
                     this.TurnRight();
                     break;
                 default:
-                    Console.WriteLine($"Geçersiz Karakter {item}");
+                    Console.WriteLine($"Geçersiz Karakter => {item}");
                     break;
             }
 
-            if (this.X < 0 || this.X > Area[0] || this.Y < 0 || this.Y > Area[1])
+            if (this.Y > Area[1] || this.X < 0 || this.Y < 0 || this.X > Area[0] )
             {
-                throw new Exception($"Alanı geçtiniz :  ({Area[0]} , {Area[1]})");
+                throw new Exception($"Lütfen alan sınırları içerisinde bir değer giriniz :  ({Area[0]} , {Area[1]})");
             }
 
         }

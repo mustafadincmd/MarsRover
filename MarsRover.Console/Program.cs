@@ -1,5 +1,4 @@
-﻿
-Console.WriteLine("Lütfen alan boyutunu yazınız. Örn: 5 5 ");
+﻿Console.WriteLine("Lütfen alan boyutunu yazınız. Örn: 5 5 ");
 var Area = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToList();
 
 Console.WriteLine("Şuanki konumu giriniz. Örn: 1 2 N ");
@@ -25,8 +24,4 @@ catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
-
 Console.ReadLine();
-
-
-
