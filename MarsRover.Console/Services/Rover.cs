@@ -83,6 +83,11 @@ public class Rover : IRover
             switch (item)
             {
                 case 'M':
+
+                    if (this.Y > Area[1] || this.X < 0 || this.Y < 0 || this.X > Area[0])
+                    {
+                        throw new Exception($"Lütfen alan sınırları içerisinde bir değer giriniz :  ({Area[0]} , {Area[1]})");
+                    }
                     this.Forward();
                     break;
                 case 'L':
@@ -96,10 +101,6 @@ public class Rover : IRover
                     break;
             }
 
-            if (this.Y > Area[1] || this.X < 0 || this.Y < 0 || this.X > Area[0] )
-            {
-                throw new Exception($"Lütfen alan sınırları içerisinde bir değer giriniz :  ({Area[0]} , {Area[1]})");
-            }
 
         }
     }
